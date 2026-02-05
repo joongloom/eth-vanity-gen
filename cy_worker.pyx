@@ -1,6 +1,3 @@
-# cy_worker.pyx
-# cython: language_level=3
-
 import time
 import json
 import os
@@ -57,7 +54,6 @@ cdef bint is_beautiful_optimized(str address, str pref, str suff):
 
 cdef tuple fast_generate():
     cdef bytes private_key_bytes = os.urandom(32)
-    # coincurve работает быстрее eth_keys
     cdef object public_key = PublicKey.from_secret(private_key_bytes).format(compressed=False)[1:]
     cdef object addr = keccak(public_key)[-20:]
     return to_checksum_address(addr), private_key_bytes.hex()
