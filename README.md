@@ -23,7 +23,6 @@ git clone https://github.com/joongloom/eth-vanity-gen.git
 cd eth-vanity-gen
 pip install -r requirements.txt
 
-# Сборка Cython-модуля (выполняется один раз перед запуском)
 python setup.py build_ext --inplace
 
 ```
